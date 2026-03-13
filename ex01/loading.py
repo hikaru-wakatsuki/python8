@@ -2,6 +2,7 @@ import sys
 import importlib
 from types import ModuleType
 
+
 def check_package(name: str, message: str) -> ModuleType:
     try:
         module: ModuleType = importlib.import_module(name)
@@ -36,7 +37,8 @@ def main() -> None:
         print("Generating visualization...")
         import matplotlib.pyplot
         matplotlib.pyplot.figure()
-        matplotlib.pyplot.hist(df["dice_data"], bins=[0.5,1.5,2.5,3.5,4.5,5.5,6.5], edgecolor="black")
+        matplotlib.pyplot.hist(
+            df["dice_data"], bins=numpy.arange(0.5, 7.5, 1), edgecolor="black")
         matplotlib.pyplot.title("Dice Roll Distribution")
         matplotlib.pyplot.xlabel("Dice Value")
         matplotlib.pyplot.ylabel("Frequency")
